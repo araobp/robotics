@@ -1,38 +1,3 @@
 # Godot 4+ specific ignores
 .godot/
-.nomedia
-
-# Godot-specific ignores
-# .import/ (Godot 3.x and 4.0)
-# For Godot 4.1 and later, .godot/ replaces .import/ for most cache data.
-# If you are using Godot 3.x or 4.0, you might need to uncomment .import/
-# However, be aware that ignoring .import/ can cause issues with UIDs if not handled carefully.
-# The official Godot documentation for 4.1+ recommends ignoring .godot/ instead. [8]
-
-export.cfg
-export_credentials.cfg
-*.translation
-
-# Mono-specific ignores (if using C#)
-.mono/
-data_*/
-mono_crash.*.json
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Windows
-Desktop.ini
-$RECYCLE.BIN/
-
-# Linux
-*~
-.nfs*
+/android/
