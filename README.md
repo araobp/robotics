@@ -14,6 +14,14 @@ https://github.com/user-attachments/assets/52b701a5-fe86-44a4-b6d0-b4fb5e340124
 
 ## Gemini Robot Simulation with Godot
 
+### IK
+
+=> [Cosine theorem for Inverse Kinematics](https://github.com/araobp/unity-excavator/blob/master/Excavator/jupyter/IK.ipynb)
+
+### Code
+
+(Just started developing it)
+
 => [Code](./robotics)
 
 "gemini_api_key.txt" file contining Gemini API Key value must be in the root folder. The file is not archived in this repo for a security reason.
