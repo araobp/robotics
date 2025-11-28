@@ -1,4 +1,4 @@
-# Gemini Robotics Simulation
+# Gemini Robotics Simulation with Godot
 
 (Work in progress)
 
