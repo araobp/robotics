@@ -16,6 +16,9 @@ The original blend file is in https://github.com/araobp/blender-3d/tree/main/rob
 
 => [Gemini.cs](/robotics/Assets/Scripts/Gemini.cs) This is a Gemini-generated C# port of [my original GDScript code for Gemini API](https://github.com/araobp/airport/blob/main/airport/scripts/gemini.gd).
 
+Gemini API:
+- [Speech Generation](https://ai.google.dev/gemini-api/docs/speech-generation)
+
 ## Robot scene on Godot
 
 I have give up using Godot for this project... Use Unity that is an industry standard platform supporting various 3D capabilities for robotics simulation.
