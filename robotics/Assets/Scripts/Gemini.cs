@@ -24,6 +24,7 @@ public class Gemini
     }
 
     private string _apiEndpoint;
+    private string _ttsApiEndpoint;
     private bool _enableHistory = false;
     private List<Content> _chatHistory = new List<Content>();
     private const int MAX_CHAT_HISTORY_LENGTH = 16;
@@ -47,11 +48,12 @@ public class Gemini
     {
         if (string.IsNullOrEmpty(props.GeminiModel))
         {
-            props.GeminiModel = "gemini-1.5-flash";
+            props.GeminiModel = "gemini-2.5-flash";
         }
         string api = $"https://generativelanguage.googleapis.com/v1beta/models/{props.GeminiModel}:generateContent";
         Debug.Log($"Using Gemini API Endpoint: {api}");
         _apiEndpoint = $"{api}?key={props.GeminiApiKey}";
+        _ttsApiEndpoint = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key={props.GeminiApiKey}";
         _enableHistory = enableHistory;
         CHAT_HISTORY_LOG_PATH = Path.Combine(Application.persistentDataPath, "chat_history.txt");
     }
@@ -132,6 +134,52 @@ public class Gemini
 
         return latestResponseText;
     }
+
+    /// <summary>
+    /// Synthesizes speech from text.
+    /// </summary>
+    /// <param name="text">The text to synthesize.</param>
+    /// <param name="voiceName">The name of the voice to use.</param>
+    /// <returns>A byte array containing the synthesized audio data.</returns>
+    public async Task<byte[]> SynthesizeSpeech(string text, string voiceName = "Leda")
+    {
+        var payload = new JObject();
+        payload["contents"] = new JArray {
+                new JObject {
+                    ["parts"] = new JArray {
+                        new JObject { ["text"] = text }
+                    }
+                }
+            };
+        payload["generationConfig"] = new JObject {
+                ["responseModalities"] = new JArray { "AUDIO" },
+                ["speechConfig"] = new JObject {
+                    ["voiceConfig"] = new JObject {
+                        ["prebuiltVoiceConfig"] = new JObject { ["voiceName"] = voiceName }
+                    }
+                }
+            };
+        //payload["model"] = "gemini-1.5-flash-preview-tts";
+
+        string responseBody = await SendWebRequest(_ttsApiEndpoint, payload.ToString());
+        if (string.IsNullOrEmpty(responseBody)) return null;
+
+        try
+        {
+            var jsonResponse = JObject.Parse(responseBody);
+            var audioData = jsonResponse["candidates"]?[0]?["content"]?["parts"]?[0]?["inlineData"]?["data"]?.ToString();
+
+            if (string.IsNullOrEmpty(audioData)) return null;
+
+            return Convert.FromBase64String(audioData);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"JSON Parse Error or Base64 Decode Error: {ex.Message}\nResponse Body: {responseBody}");
+            return null;
+        }
+    }
+
 
     #endregion
 
@@ -328,11 +376,6 @@ public class Gemini
         return (null, null);
     }
 
-    internal async Task Chat(string v1, string v2, object value1, object value2, object value3, Action<object> value4)
-    {
-        throw new NotImplementedException();
-    }
-
     #endregion
 
     #region API Data Structures
@@ -348,6 +391,12 @@ public class Gemini
 
     [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class GeminiResponse
+    {
+        public Candidate[] Candidates { get; set; }
+    }
+
+    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
+    public class SynthesizeSpeechResponse
     {
         public Candidate[] Candidates { get; set; }
     }
@@ -373,10 +422,18 @@ public class Gemini
         public InlineData InlineData { get; set; }
         public FunctionCall FunctionCall { get; set; }
         public FunctionResponse FunctionResponse { get; set; }
+        public AudioData AudioData { get; set; }
     }
 
     [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class InlineData
+    {
+        public string MimeType { get; set; }
+        public string Data { get; set; }
+    }
+
+    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
+    public class AudioData
     {
         public string MimeType { get; set; }
         public string Data { get; set; }
