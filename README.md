@@ -21,6 +21,12 @@ The original blend file is in https://github.com/araobp/blender-3d/tree/main/rob
 Gemini API:
 - [Speech Generation](https://ai.google.dev/gemini-api/docs/speech-generation)
 
+## Robot scene on Unity
+
+I have just started working on the robot on Unity.
+
+https://github.com/user-attachments/assets/284fa21c-c9fd-4fcd-9ea6-39f38e45e4f8
+
 ## Robot scene on Godot
 
 I have give up using Godot for this project... Use Unity that is an industry standard platform supporting various 3D capabilities for robotics simulation.
