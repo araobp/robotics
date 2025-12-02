@@ -25,7 +25,7 @@ Currently, the Unity simulation implementation is in its early stages.
 
 Work on the robot scene in Unity has recently begun.
 
-https://github.com/user-attachments/assets/284fa21c-c9fd-4fcd-9ea6-39f38e45e4f8
+https://github.com/user-attachments/assets/5b8cf89e-a132-40f8-8c07-1bc9a24380b4
 
 ## Robot Scene in Godot (Discontinued)
 
