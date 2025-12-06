@@ -22,11 +22,15 @@ Currently, the Unity simulation implementation is in its early stages.
 
 ### Positioning the robot hand to the work on the table
 
-<img src="docs/Positioning_1.jpg" width=600>
+<img src="P1.jpg" width=600>
 
-<img src="docs/Positioning_2.jpg" width=600>
+<img src="docs/P2.jpg" width=600>
 
-<img src="docs/Positioning_3.jpg" width=600>
+<img src="docs/P3.jpg" width=600>
+
+<img src="docs/P4.jpg" width=600>
+
+<img src="docs/P5.jpg" width=600>
 
 ### Gemini API
 
