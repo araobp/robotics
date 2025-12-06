@@ -20,7 +20,7 @@ Currently, the Unity simulation implementation is in its early stages.
 
 [Explore the Cosine theorem for Inverse Kinematics implementation](https://github.com/araobp/unity-excavator/blob/master/Excavator/jupyter/IK.ipynb)
 
-### Positioning of the robot arm
+### Positioning of the robot arm to the work on the table
 
 <img src="docs/Positioning_1.jpg" width=600>
 
