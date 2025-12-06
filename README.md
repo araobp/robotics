@@ -4,7 +4,7 @@ This project explores AI robot simulation using the Gemini API.
 
 ## Robot 3D Model in Blender
 
-<img src="docs/robot.png" width=300>
+<img src="docs/robot.png" width=200>
 
 The original Blender file is available in this repository: [blender-3d/robots](https://github.com/araobp/blender-3d/tree/main/robots).
 
