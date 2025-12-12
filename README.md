@@ -4,7 +4,7 @@ This project explores AI robot simulation using the Gemini API.
 
 ## Robot 3D Model in Blender
 
-<img src="docs/robot.png" width=300>
+<img src="docs/robot.png" width=200>
 
 The original Blender file is available in this repository: [blender-3d/robots](https://github.com/araobp/blender-3d/tree/main/robots).
 
@@ -22,11 +22,15 @@ Currently, the Unity simulation implementation is in its early stages.
 
 ### Positioning the robot hand to the work on the table
 
-<img src="docs/Positioning_1.jpg" width=600>
+<img src="docs/P1.jpg" width=600>
 
-<img src="docs/Positioning_2.jpg" width=600>
+<img src="docs/P2.jpg" width=600>
 
-<img src="docs/Positioning_3.jpg" width=600>
+<img src="docs/P3.jpg" width=600>
+
+<img src="docs/P4.jpg" width=600>
+
+<img src="docs/P5.jpg" width=600>
 
 ### Gemini API
 
