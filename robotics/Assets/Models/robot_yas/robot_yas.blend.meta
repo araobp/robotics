@@ -3,27 +3,7 @@ guid: bc859c7163f924a38bf55be8b163a4a2
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Body
-    second: {fileID: 2100000, guid: 39e042cb1cfb344a28ec3873c2095a36, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cap
-    second: {fileID: 2100000, guid: 38f4330099e454b84acdbdddbdfc2c84, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: c450ed991dda94c48ac30a3beb484277, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rubber
-    second: {fileID: 2100000, guid: f0e1bb1a9ac1e458b80e0aa5b8acdd62, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
